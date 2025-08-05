@@ -1,0 +1,12 @@
+{
+  "name": "gpt-oss-test-client",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test:openai": "node test-openai.js",
+    "test:direct": "node test-direct.js"
+  },
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}

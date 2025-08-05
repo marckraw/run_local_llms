@@ -1,0 +1,71 @@
+# Dependencies
+node_modules/
+.npm/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+*.js.map
+*.d.ts
+*.tsbuildinfo
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python (for vLLM/Ollama stuff)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv
+
+# Model files (huge!)
+*.bin
+*.safetensors
+*.gguf
+*.ggml
+gpt-oss-*/
+models/
+
+# Cache
+.cache/
+.ollama/
+.huggingface/
+
+# Testing
+coverage/
+.nyc_output/
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
