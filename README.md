@@ -8,11 +8,17 @@ Run OpenAI's GPT-OSS 20B model locally on your Mac with OpenAI SDK compatibility
 # 1. Start the server
 ./run_gpt_ollama.sh
 
-# 2. Test it works
+# 2. Check server status
+./status_gpt_ollama.sh
+
+# 3. Test it works
 cd test-client
 npm install
 npm run test:openai  # Test with OpenAI SDK
 npm run test:direct  # Test with direct Ollama API
+
+# 4. Stop the server when done
+./stop_gpt_ollama.sh
 ```
 
 ## What's GPT-OSS?
@@ -56,6 +62,8 @@ When the server is running, you can access it from your iPhone:
 ```
 /
 ├── run_gpt_ollama.sh      # Start the Ollama server
+├── status_gpt_ollama.sh   # Check server status
+├── stop_gpt_ollama.sh     # Stop the Ollama server
 └── test-client/           # Test client examples
     ├── package.json
     ├── test-openai.js     # OpenAI SDK example

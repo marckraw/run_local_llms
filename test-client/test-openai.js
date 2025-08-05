@@ -1,4 +1,4 @@
-// Test GPT-OSS using OpenAI SDK
+// Test GPT-OSS using OpenAI SDK with streaming
 
 import OpenAI from 'openai';
 
@@ -8,16 +8,25 @@ const openai = new OpenAI({
 });
 
 async function testWithOpenAISDK() {
-  // This is EXACTLY the same code you'd use with real OpenAI!
-  const completion = await openai.chat.completions.create({
+  console.log('🤖 GPT-OSS: ');
+  
+  // Stream the response like ChatGPT!
+  const stream = await openai.chat.completions.create({
     model: 'gpt-oss:20b',
     messages: [
       { role: 'system', content: 'You are a helpful assistant.' },
-      { role: 'user', content: 'What is React in one sentence?' }
+      { role: 'user', content: 'Explain JavaScript closures with a simple example.' }
     ],
+    stream: true,  // Enable streaming
   });
 
-  console.log('Response:', completion.choices[0].message.content);
+  // Print each chunk as it arrives
+  for await (const chunk of stream) {
+    const content = chunk.choices[0]?.delta?.content || '';
+    process.stdout.write(content);
+  }
+  
+  console.log('\n\n✅ Stream complete!');
 }
 
 testWithOpenAISDK().catch(console.error);

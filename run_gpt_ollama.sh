@@ -2,11 +2,28 @@
 
 echo "=== GPT-OSS 20B Local Server (via Ollama) ==="
 
-# 1. Check if Ollama is running, if not start it
-if ! pgrep -x "ollama" > /dev/null; then
+# 1. Check if Ollama is already running
+if pgrep -x "ollama" > /dev/null; then
+    echo "[STATUS] ✅ Ollama is already running"
+    
+    # Check if model is loaded
+    if ollama list | grep -q "gpt-oss:20b"; then
+        echo "[STATUS] ✅ GPT-OSS 20B model is available"
+    else
+        echo "[STATUS] ⚠️  GPT-OSS 20B model not found, will download..."
+    fi
+else
     echo "[INFO] Starting Ollama service..."
     ollama serve > /dev/null 2>&1 &
     sleep 3
+    
+    # Verify it started
+    if pgrep -x "ollama" > /dev/null; then
+        echo "[STATUS] ✅ Ollama service started successfully"
+    else
+        echo "[ERROR] ❌ Failed to start Ollama service"
+        exit 1
+    fi
 fi
 
 # 2. Pull the GPT-OSS model if not already downloaded
