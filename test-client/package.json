@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test:openai": "node test-openai.js",
-    "test:direct": "node test-direct.js",
-    "test:thinking": "node test-thinking.js"
+    "test:simple": "node test-simple.js",
+    "test:openai": "node test-openai-basic.js",
+    "test:live": "node test-live-reasoning.js"
   },
   "dependencies": {
     "openai": "^4.0.0"

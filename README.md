@@ -24,9 +24,24 @@ npm run test:direct  # Test with direct Ollama API
 ## What's GPT-OSS?
 
 OpenAI's open-source 20B parameter model with:
-- Full chain-of-thought reasoning (you can see what it's thinking!)
-- OpenAI API compatibility
-- Runs locally on your Mac
+- **Full chain-of-thought reasoning** - You can see the model's thinking process!
+- **OpenAI API compatibility** - Use with any OpenAI SDK
+- **Runs locally on your Mac** - Private, offline AI
+
+### 🧠 Unique Feature: Reasoning Tokens
+
+GPT-OSS exposes its internal thinking process! You can watch it think in real-time:
+
+```bash
+cd test-client
+
+# Three ways to test:
+npm run test:simple  # Direct API call (no OpenAI SDK)
+npm run test:openai  # OpenAI SDK (non-streaming)
+npm run test:live    # OpenAI SDK with live thinking + streaming!
+```
+
+The model's `reasoning` tokens show HOW it thinks before answering - something usually hidden in other models!
 
 ## Usage with OpenAI SDK
 
