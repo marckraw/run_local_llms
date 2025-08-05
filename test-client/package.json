@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "test:openai": "node test-openai.js",
-    "test:direct": "node test-direct.js"
+    "test:direct": "node test-direct.js",
+    "test:thinking": "node test-thinking.js"
   },
   "dependencies": {
     "openai": "^4.0.0"
